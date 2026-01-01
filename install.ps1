@@ -1,1 +1,14 @@
-$e='SilentlyContinue';$h=((Get-WmiObject Win32_BaseBoard).SerialNumber).Trim().Replace(' ','');Write-Host 'FLASHPLAY CORE - VERIFICACAO' -ForegroundColor Cyan;Write-Host ('HWID: '+$h) -ForegroundColor Yellow;$k=Read-Host 'Digite sua chave FlashPlay';if($k-ne($h+'FP2026')){Write-Host 'LICENCA INVALIDA! discord.gg/dPkS8ykb' -ForegroundColor Red;Start-Sleep 3;exit};iwr -useb 'https://luatools.vercel.app/install-plugin.ps1'|iex;Write-Host 'INSTALADO!' -ForegroundColor Green;pause
+$ErrorActionPreference = 'SilentlyContinue'
+$hwID = ((Get-WmiObject Win32_BaseBoard).SerialNumber).Trim().Replace(' ','')
+Write-Host '🔐 FLASHPLAY CORE v2.2' -ForegroundColor Cyan
+Write-Host "💻 HWID: $hwID" -ForegroundColor Yellow
+$chave = Read-Host '🔑 Digite sua chave FlashPlay'
+if($chave -ne ($hwID + 'FP2026')) {
+    Write-Host '❌ LICENÇA INVÁLIDA! discord.gg/dPkS8ykb' -ForegroundColor Red
+    Start-Sleep 3
+    exit
+}
+Write-Host '✅ AUTORIZADO! Aguarde...' -ForegroundColor Green
+Start-Sleep 2
+Write-Host '🎉 Execute comando #2 (me mande print primeiro!)' -ForegroundColor Green
+pause
